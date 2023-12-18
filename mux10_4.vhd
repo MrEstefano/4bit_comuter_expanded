@@ -1,55 +1,55 @@
 library ieee;
 use ieee.std_logic_1164.all;
-LIBRARY work;
+library work;
 
 entity mux10_4 is
    port(
-      A,L,C,K: in std_logic_vector(9 downto 0); -- 4 10-bit inputs
-      M: out std_logic_vector(9 downto 0);      -- 1 10-bit output
+     	A,L,C,K: in std_logic_vector(9 downto 0); -- 4 10-bit inputs
+      	M: out std_logic_vector(9 downto 0);      -- 1 10-bit output
 	N: out std_logic_vector(9 downto 0);      -- 1 10-bit output
-		KEY1 :  IN  STD_LOGIC;
-		refclk :  IN  STD_LOGIC
-		
+	KEY1 :  IN  STD_LOGIC;
+	refclk :  IN  STD_LOGIC		
 	);
 	
 	
-END mux10_4;
+end mux10_4;
 
-ARCHITECTURE bdf_type OF mux10_4 IS 
+architecture bdf_type of mux10_4 is 
 
-COMPONENT exp
-	PORT(A_IN : IN STD_LOGIC;
-		 A_OUT : OUT STD_LOGIC
-	);
+component exp
+	port(
+	     A_IN : IN STD_LOGIC;
+	     A_OUT : OUT STD_LOGIC
+	    );
 END COMPONENT;
 
-signal     q1 :   STD_LOGIC ;
-signal     q0 :    STD_LOGIC ;
-SIGNAL	sig0 :  STD_LOGIC;
-SIGNAL	sig1 :  STD_LOGIC;
-SIGNAL	sig2 :  STD_LOGIC;
-SIGNAL	sig3 :  STD_LOGIC;
-SIGNAL	sig4 :  STD_LOGIC;
-SIGNAL   	DFF :  STD_LOGIC;
-SIGNAL	JKFF :  STD_LOGIC;
+signal    q1 :  STD_LOGIC;
+signal    q0 :  STD_LOGIC;
+signal	sig0 :  STD_LOGIC;
+signal	sig1 :  STD_LOGIC;
+signal	sig2 :  STD_LOGIC;
+signal	sig3 :  STD_LOGIC;
+signal	sig4 :  STD_LOGIC;
+signal   DFF :  STD_LOGIC;
+signal	JKFF :  STD_LOGIC;
 
 
-BEGIN 
+begin 
 q0 <= JKFF;
 sig0  <= '1';
 
 
 
-PROCESS(sig1,sig0 )
-VARIABLE count_q0 : STD_LOGIC;
-BEGIN
-IF (sig0  = '0') THEN
+process(sig1,sig0 )
+variable count_q0 : STD_LOGIC;
+begin
+if (sig0  = '0') then
 	count_q0 := '0';
-ELSIF (RISING_EDGE(sig1)) THEN
+elsif (RISING_EDGE(sig1)) then
 	count_q0 := (NOT(count_q0) AND sig0 ) OR (count_q0 AND (NOT(sig0 )));
-END IF;
+end if;
 	JKFF <= count_q0;
-END PROCESS;
+end process;
 
 
 PROCESS(sig2,sig0 )
