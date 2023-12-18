@@ -38,9 +38,9 @@ b2v : exp port map(
 	A_OUT => sig_b
 	);
 	
------------------------------------- Debouncing KEY1 ---------------------------------------
+----------------------------------------- Debouncing KEY1 -------------------------------------------
 	
-process(refclk,sig_a)                                    -- D flip flop 1
+process(refclk,sig_a)                                    -- Delay 1
 	begin
 		if (sig_a  = '0') then
 			sig0 <= '0';
@@ -49,7 +49,7 @@ process(refclk,sig_a)                                    -- D flip flop 1
 		end if;
 	end process;
 			
-process(refclk,sig_a)                                    -- D flip flop 2
+process(refclk,sig_a)                                    -- Delay 2
 	begin
 		if (sig_a  = '0') then
 			sig1  <= '0';
@@ -58,7 +58,7 @@ process(refclk,sig_a)                                    -- D flip flop 2
 		end if;
 	end process;
 
-process(refclk,sig_a)                                    -- D flip flop 3
+process(refclk,sig_a)                                    -- Delay 3
 	begin
 		if (sig_a  = '0') then
 			sig3 <= '0';
@@ -69,10 +69,10 @@ process(refclk,sig_a)                                    -- D flip flop 3
 
 KEY1_Debounced <= sig0 AND sig1  AND sig3;  -- AND-ing three delays to generate one rising edge
 
----------------------------- 2bit counter -------------------------------------
+------------------------------------- 2bit counter -------------------------------------------
 		
 process(KEY1_Debounced,sig_a)
-variable count_q0 : STD_LOGIC;
+	variable count_q0 : STD_LOGIC;
 	begin
 		if (sig_a  = '0') then
 			count_q0 := '0';
@@ -83,8 +83,8 @@ variable count_q0 : STD_LOGIC;
 	end process;
 
 
-process(sig_b,sig_a )
-variable count_q1 : STD_LOGIC;
+process(sig_a,sig_b)
+	variable count_q1 : STD_LOGIC;
 	begin
 		if (sig_a  = '0') then
 			count_q1 := '0';
