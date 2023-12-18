@@ -50,5 +50,5 @@ begin
 		end if;
 	end if;
 	K <= shift_reg;
-end process compteur; 
+end process compter; 
 end RTL;
