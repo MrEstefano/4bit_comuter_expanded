@@ -21,7 +21,7 @@ component exp
 	     A_IN : IN STD_LOGIC;
 	     A_OUT : OUT STD_LOGIC
 	    );
-END COMPONENT;
+end component;
 
 signal    q1 :  STD_LOGIC;
 signal    q0 :  STD_LOGIC;
@@ -40,7 +40,7 @@ sig0  <= '1';
 
 
 
-process(sig1,sig0 )
+process(sig1,sig0)
 variable count_q0 : STD_LOGIC;
 begin
 if (sig0  = '0') then
@@ -52,65 +52,63 @@ end if;
 end process;
 
 
-PROCESS(sig2,sig0 )
-VARIABLE count_q1 : STD_LOGIC;
-BEGIN
-IF (sig0  = '0') THEN
+process(sig2,sig0 )
+variable count_q1 : STD_LOGIC;
+begin
+if (sig0  = '0') then
 	count_q1 := '0';
-ELSIF (RISING_EDGE(sig2)) THEN
+elsif (RISING_EDGE(sig2)) then
 	count_q1 := (NOT(count_q1) AND sig0 ) OR (count_q1 AND (NOT(sig0 )));
-END IF;
+end if;
 	q1 <= count_q1;
-END PROCESS;
+end process;
 
 
-PROCESS(refclk,sig0 )
-BEGIN
-IF (sig0  = '0') THEN
+process(refclk,sig0 )
+begin
+if (sig0  = '0') then
 	sig4  <= '0';
-ELSIF (RISING_EDGE(refclk)) THEN
+elsif (RISING_EDGE(refclk)) then
 	sig4  <= sig3;
-END IF;
-END PROCESS;
+end if;
+end process;
 
 
-PROCESS(refclk,sig0 )
-BEGIN
-IF (sig0  = '0') THEN
+process(refclk,sig0 )
+begin
+if (sig0  = '0') then
 	sig3 <= '0';
-ELSIF (RISING_EDGE(refclk)) THEN
+elsif (RISING_EDGE(refclk)) then
 	sig3 <= KEY1;
-END IF;
-END PROCESS;
+end if;
+end process;
 
 
 sig1 <= sig3 AND sig4  AND DFF;
 
 
-PROCESS(refclk,sig0 )
-BEGIN
-IF (sig0  = '0') THEN
+process(refclk,sig0 )
+begin
+if (sig0  = '0') then
 	DFF <= '0';
-ELSIF (RISING_EDGE(refclk)) THEN
+elsif (RISING_EDGE(refclk)) then
 	DFF <= sig4 ;
-END IF;
-END PROCESS;
+end if;
+end process;
 
-M <= 		A when ((q0 = '0') and (q1 = '0')) 
-   else  L when ((q0 = '0') and (q1 = '1')) 
-   else  C when ((q0 = '1') and (q1 = '0')) 
-   else  K;
-N<= 		A when ((q0 = '0') and (q1 = '0')) 
-		else  L when ((q0 = '0') and (q1 = '1')) 
-		else  C when ((q0 = '1') and (q1 = '0')) 
-		else  K;
+M <= 	A when ((q0 = '0') and (q1 = '0')) else
+	L when ((q0 = '0') and (q1 = '1')) else  
+	C when ((q0 = '1') and (q1 = '0')) else
+	K;
+N <= 	A when ((q0 = '0') and (q1 = '0')) else
+	L when ((q0 = '0') and (q1 = '1')) else  
+	C when ((q0 = '1') and (q1 = '0')) else
+	K;
 	
 b2v_inst6 : exp
-PORT MAP(A_IN => JKFF,
+port map(A_IN => JKFF,
 		 A_OUT => sig2);
-
-
 	  
-END bdf_type;
+end bdf_type;
 
 
