@@ -6,7 +6,7 @@ entity mux10_4 is
    port(
       A,L,C,K: in std_logic_vector(9 downto 0); -- 4 10-bit inputs
       M: out std_logic_vector(9 downto 0);      -- 1 10-bit output
-		N: out std_logic_vector(9 downto 0);      -- 1 10-bit output
+	N: out std_logic_vector(9 downto 0);      -- 1 10-bit output
 		KEY1 :  IN  STD_LOGIC;
 		refclk :  IN  STD_LOGIC
 		
