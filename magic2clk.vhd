@@ -22,7 +22,7 @@ begin
 	
 	 Rst <= '0';
 	 -- 0 to max_count counter
-compter : process(refclk, Rst)
+computer : process(refclk, Rst)
 	  --variable count : natural range 0 to max_count;
 begin
 	if Rst = '1' then
@@ -50,5 +50,5 @@ begin
 		end if;
 	end if;
 	K <= shift_reg;
-end process compter; 
+end process computer; 
 end RTL;
