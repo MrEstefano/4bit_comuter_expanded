@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.numeric_std.all;
- 
+use IEEE.numeric_std.all; 
  
 entity magic2clk is
     		Port( 
@@ -30,13 +29,13 @@ begin
 			K <= "1111111111";
 	elsif rising_edge(refclk) then
 		if (count < 50000000) then 
-			count <= count + 4 ;
+			count <= count + 6 ;
 		else
 			count <= 0;
 			pulse <= '1';
 			if (pulse = '1') then                         
 				if (state = '0') then
-					shift_reg <= shift_reg (8 downto 0) & '0';
+					shift_reg <= shift_reg (8 downto 0) & '0' ;
 						if (shift_reg(8) = '1') then
 							state <= '1';
 						end if;
@@ -50,5 +49,5 @@ begin
 		end if;
 	end if;
 	K <= shift_reg;
-end process counter; 
+end process; 
 end RTL;
