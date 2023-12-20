@@ -13,7 +13,7 @@ entity arithmetic is
 port(
     number1, number2 : in std_logic_vector(3 downto 0);
     SW9,SW8 : in std_logic;
-    A: out std_logic_vector(9 downto 0) 
+    A: out std_logic_vector(9 downto 0)
 );
 end arithmetic;
 --
@@ -29,29 +29,36 @@ begin
     process(number1, number2, SW9,SW8) is
     begin
         if(SW9 = '0' and SW8 = '0') then          -- add two numbers
-            A(0) <= number1 (0) xor number2(0);
-            c0 <= number1(0) and number2(0);
-            A(1) <= number1 (1) xor number2(1) xor c0;
-            c1 <= number1(1) and number2(1);
-            A(2) <= number1 (2) xor number2(2) xor c1;
-            c2 <= number1(2) and number2(2);
-            A(3) <= number1 (3) xor number2(3) xor c2;
-            c3 <= number1(3) and number2(3);
-            A(4) <= c3;
+				A(0) <= number1 (0) xor number2(0);
+				c0 <= number1(0) and number2(0);
+				A(1) <= (number1 (1) xor number2(1)) xor c0;
+				c1 <= ((number1 (1) or number2(1)) and c0) or (number1 (1) and number2(1));
+				A(2) <= number1 (2) xor number2(2) xor c1;
+				c2 <= ((number1 (2) or number2(2)) and c1) or (number1 (2) and number2(2));
+				A(3) <= number1 (3) xor number2(3) xor c2;
+				c3 <= ((number1 (3) or number2(3)) and c2) or (number1 (3) and number2(3));
+				A(4) <= c3;
+				A(5) <= '0';
+				A(6) <= '0';
+				A(7) <= '0';
 
         elsif(SW9='0' and SW8='1') then           -- subtract two numbers
-        d <= '1';
-        b0 <= not number2(0);
-        b1 <= not number2(1);
-        b2 <= not number2(2);
-        b3 <= not number2(3);
-        A(0) <= number1(0) xor b0 xor d;
-            c0 <= (number1(0) and b0) or (number1(0) and d) or (b0 and d);
-            A(1) <= number1 (1) xor b1 xor c0;
-            c1 <= (number1(1) and b1) or (number1(1) and d) or (b1 and d);
-            A(2) <= number1 (2) xor b2 xor c1;
-            c2 <= (number1(2) and b2) or (number1(2) and d) or (b2 and d);
-            A(3) <= number1 (3) xor b3 xor c2;
+				d <= '1';
+				b0 <= not number2(0);
+				b1 <= not number2(1);
+				b2 <= not number2(2);
+				b3 <= not number2(3);
+				A(0) <= number1(0) xor b0 xor d;
+				c0 <= (number1(0) and b0) or (number1(0) and d) or (b0 and d);
+				A(1) <= (number1 (1) xor b1) xor c0;
+				c1 <= ((number1(1) or b1) and c0) or (number1(1) and b1);
+				A(2) <= (number1 (2) xor b2) xor c1;
+				c2 <= ((number1(2) or b2) and c1) or (number1(2) and b2);
+				A(3) <= (number1 (3) xor b3) xor c2;
+				A(4) <= '0';
+				A(5) <= '0';
+				A(6) <= '0';
+				A(7) <= '0';
 
         elsif(SW9='1' and SW8='0') then           -- multiply two numbers
             A <= "00" & (std_logic_vector(unsigned(number1) * unsigned(number2)));
