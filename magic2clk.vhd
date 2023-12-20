@@ -22,7 +22,7 @@ begin
 	
 	 Rst <= '0';
 	 -- 0 to max_count counter
-compteur : process(refclk, Rst)
+compter : process(refclk, Rst)
 	  --variable count : natural range 0 to max_count;
 begin
 	if Rst = '1' then
