@@ -8,7 +8,6 @@ This lab is about implementing VHDL code of the 4 bit computer which is given in
 2. Methodology
 The experiment utilizes Quartus software tools, which interfaces DE10-Lite development board. The software platform supports various file formats, in which student can implement block diagram given in lab requirements paper and test it on the development board. The project contains the 4bit_computer file which is set as top hierarchy file and the component files are created in same project one by one, considered as sub functions. The top hierarchy file is manipulating various component inputs and outputs among the whole project. The 4bit computer name is derived from its design to take two inputs in 4 bit binary format. There are four activities: arithmetic, comparison, logic and magic2 clock. The activity operation is controlled by combined SW8 and SW9 logic state 1 or 0. When 2 bit combination is selected by KEY0 and KEY1 the result is displayed on LED’s in 8bit binary format. All peripherals are assigned to respective pin location on FPGA
 
-
 2.1. Four bit input
 There are two input variables, num1 and num2, these are set by switches num1( SW0 to SW3 ) and num2 (SW4 to SW7) in 4 bit binary number. Each input value is displayed on LED’s respectively. In parallel the input value is then displayed on Seven segment 0 and Seven segment 1 in hex format. The Seven segment component code can be seen in appendix
 2.2. Arithmetic activity
