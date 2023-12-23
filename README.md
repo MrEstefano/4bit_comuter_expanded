@@ -52,28 +52,42 @@ Regarding to the author of the project, he states that magic2 file generates “
 3. Results
 3.1. Before upgrade
 In this section the performance of the 4 bit computer can be observed in Online Video 1. Below. As default activity is magic2clk with flashing effect of all output/LED’s. The next short Online Video 2. demonstrates how arithmetic function is activated, where two inputs are set, as following: num1  is “8” and num2 is “7”. By pushing to pushbuttons KEY0 and KEY1, the result can be observed on four LED’s (0 to 3)
+
 https://youtu.be/thQeLy31IUU
-![image](https://github.com/MrEstefano/4bit_comuter_expanded/assets/79326044/57ae280a-3072-44d9-b70a-3eff5df40fd4)
+
+https://youtu.be/CuadkZT1y7k
 
 3.2. After upgrade
 3.2.1. Magic2clk “Knight rider” effect
 In the section result shows the outcome from upgrading the code and enhanced performance within magic2clk activity where instead all LED’s flashing, the knight rider effect can be observed in Online Video 3
 
+https://youtu.be/cTu5o7ZnOeA
+
 3.2.2. Move through activities with debounced pushbutton
 
 The part of upgrade is moving through activities by pressing on pushbutton KEY1 which acts as clock pulse to manipulate two registers and achieve sequence of 2 bit asynchronous counter. By exercising the counter, it has been observed that it moves from one state of counter to another too fast as it is suspected, the clock speed of FPGA is 50 Mhz, which means that there are many rising edges at one push of the button also called bouncing signal. Therefore debounce algorithm has been added to 4_10mux file resourced at Invent Logics [3]. Moving among computer activities become much more convenient and predictable. The sequence it moves is K -> A -> C -> L . Following short Online Video 4. Proves how to move to next activity called Arithmetic in addition mode
 
+https://youtu.be/pBq_RFew_O8
+
 3.2.3. Computed result in decimal – BCD/7segment
 The greatest achievement in upgrading computer VHDL program code is expanding the code with new component called 8bit to binary conversion. Coded in decimal number encoder algorithm utilizing three seven segments to display result in user friendly manner. The VHDL code was resourced at Stack Overflow [4] and ported over to general project. Binary Coded Decimal algorithm is based on “Double Dable” component(add3), which shifts the partition of the binary number in order to transform the whole 8bit binary number into three digit decimal numbers in range of 0 to 255 (2 in power of 8) utilizing Seven segment component function.
+
+![image](https://github.com/MrEstefano/4bit_comuter_expanded/assets/79326044/43886fb0-a9d9-4095-ae13-954e7e522b29)
 
 3.2.4. Arithmetic activity
 The arithmetic operations can be observed in Online Video 5. Calculated result is shown in binary on LED’s and on 7segments in decimal. Adding and subtracting algorithm is working fine besides some miscalculation, one of the students has noticed same issue with original code, By rewriting the addition and subtraction logic, student college has resolved the issue and addition and subtraction calculations work 100%. Credits to: Mr.x
 
+https://youtu.be/5C7wXUV4vSc 
+
 3.2.5. Comparison activity
 In Online Video 6. Shown below The Comparison activity Is presented with range of functions. Calculated result is shown in binary on LED’s and on 7segments in decimal.
 
+https://youtu.be/RTU5jb3vSFE
+
 3.2.1. Logic activity
 In Online Video 7. Shown below The Comparison activity Is presented with range of functions explored. Calculated result is shown in binary on LED’s and on 7segments in decimal
+
+https://youtu.be/Nsvf-mfHyr0
 
 4. Conclusion
 By exercising the behavior of 4bit computer on the DE10 lite development board, the functions are behaving as expected at each setting. But it has been noticed that switch SW0 to SW9 are little bit sticky, the state does not changed at some occasions. The issue was investigated, switches may needs to be exercised back and forward to achieve desired value. This could be overcome by debouncing each switch SWx. 
