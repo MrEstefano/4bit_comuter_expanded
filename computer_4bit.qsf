@@ -1,0 +1,119 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2023  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+# Date created = 21:05:00  December 05, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		computer_4bit_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY computer_4bit
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:05:00  DECEMBER 05, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name VHDL_FILE computer_4bit.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE comparison4bit.vhd
+set_global_assignment -name VHDL_FILE arithmetic.vhd
+set_global_assignment -name VHDL_FILE logical.vhd
+set_global_assignment -name VHDL_FILE magic2clk.vhd
+set_global_assignment -name VHDL_FILE mux10_4.vhd
+set_global_assignment -name VHDL_FILE hexToSevenSegment.vhd
+set_location_assignment PIN_C14 -to hex0[0]
+set_location_assignment PIN_E15 -to hex0[1]
+set_location_assignment PIN_C15 -to hex0[2]
+set_location_assignment PIN_C16 -to hex0[3]
+set_location_assignment PIN_E16 -to hex0[4]
+set_location_assignment PIN_D17 -to hex0[5]
+set_location_assignment PIN_C17 -to hex0[6]
+set_location_assignment PIN_C18 -to hex1[0]
+set_location_assignment PIN_D18 -to hex1[1]
+set_location_assignment PIN_E18 -to hex1[2]
+set_location_assignment PIN_B16 -to hex1[3]
+set_location_assignment PIN_A17 -to hex1[4]
+set_location_assignment PIN_A18 -to hex1[5]
+set_location_assignment PIN_B17 -to hex1[6]
+set_location_assignment PIN_B8 -to KEY0
+set_location_assignment PIN_A7 -to KEY1
+set_location_assignment PIN_C10 -to number1[0] -comment SW0
+set_location_assignment PIN_C11 -to number1[1] -comment SW1
+set_location_assignment PIN_D12 -to number1[2] -comment SW2
+set_location_assignment PIN_C12 -to number1[3] -comment SW3
+set_location_assignment PIN_A12 -to number2[0] -comment SW4
+set_location_assignment PIN_B12 -to number2[1] -comment SW5
+set_location_assignment PIN_A13 -to number2[2] -comment SW6
+set_location_assignment PIN_A14 -to number2[3] -comment SW7
+set_location_assignment PIN_A8 -to number_out[0] -comment LO
+set_location_assignment PIN_A9 -to number_out[1] -comment L1
+set_location_assignment PIN_A10 -to number_out[2] -comment L2
+set_location_assignment PIN_B10 -to number_out[3] -comment L3
+set_location_assignment PIN_D13 -to number_out[4] -comment L4
+set_location_assignment PIN_C13 -to number_out[5] -comment L5
+set_location_assignment PIN_E14 -to number_out[6] -comment L6
+set_location_assignment PIN_D14 -to number_out[7] -comment L7
+set_location_assignment PIN_A11 -to number_out[8] -comment L8
+set_location_assignment PIN_B11 -to number_out[9] -comment L9
+set_location_assignment PIN_B14 -to SW8 -comment SW8
+set_location_assignment PIN_F15 -to SW9 -comment SW9
+set_location_assignment PIN_P11 -to clock50
+set_global_assignment -name VHDL_FILE bin8bcd.vhd
+set_location_assignment PIN_E22 -to hex3[1]
+set_location_assignment PIN_E21 -to hex3[2]
+set_location_assignment PIN_C19 -to hex3[3]
+set_location_assignment PIN_C20 -to hex3[4]
+set_location_assignment PIN_D19 -to hex3[5]
+set_location_assignment PIN_E17 -to hex3[6]
+set_location_assignment PIN_F18 -to hex4[0]
+set_location_assignment PIN_E20 -to hex4[1]
+set_location_assignment PIN_E19 -to hex4[2]
+set_location_assignment PIN_J18 -to hex4[3]
+set_location_assignment PIN_H19 -to hex4[4]
+set_location_assignment PIN_F19 -to hex4[5]
+set_location_assignment PIN_F20 -to hex4[6]
+set_location_assignment PIN_J20 -to hex5[0]
+set_location_assignment PIN_K20 -to hex5[1]
+set_location_assignment PIN_L18 -to hex5[2]
+set_location_assignment PIN_N18 -to hex5[3]
+set_location_assignment PIN_M20 -to hex5[4]
+set_location_assignment PIN_N19 -to hex5[5]
+set_location_assignment PIN_N20 -to hex5[6]
+set_location_assignment PIN_F21 -to hex3[0]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
